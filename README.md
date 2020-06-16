@@ -7,13 +7,13 @@
 To install the enviroment we use run:
 ```conda env create -f environment.yml```
 
-## Running the code:
+## Usage:
 * Training: ```python ./segmentation.py --json_path params.json```
 * Testing (using json file): ```python ./segmentation.py --json_path params.json --test```
 * Testing (using saved checkpoint): ```python ./segmentation.py --checkpoint CheckpointName --test```
 * Fine tune the learning rate: ```python ./segmentation.py --json_path params.json --lr_finder```
 
-## Explaining the json file
+## Configuration (json file)
 
 * dataset_params
   * data_location: Location that the datasets are located
