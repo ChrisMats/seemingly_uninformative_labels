@@ -3,17 +3,17 @@
   <img width="60%" src="generalization_gap.png">
 </p>
 
-# Enviroment setup
+### Enviroment setup
 To install the enviroment we use run:
 ```conda env create -f environment.yml```
 
-# Running the code:
+### Running the code:
 * Training: ```python ./segmentation.py --json_path params.json```
 * Testing (using json file): ```python ./segmentation.py --json_path params.json --test```
 * Testing (using saved checkpoint): ```python ./segmentation.py --checkpoint CheckpointName --test```
 * Fine tune the learning rate: ```python ./segmentation.py --json_path params.json --lr_finder```
 
-## Explaining the json file
+### Explaining the json file
 
 * dataset_params
   * data_location: Location that the datasets are located
