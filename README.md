@@ -1,2 +1,2 @@
 # Adding seemingly uninformative labels helps in low data regimes
-![Alt text](generalization_gap.png?raw=true) {:height="50%" width="50%"}
+<img src="generalization_gap.png" width="40%">
