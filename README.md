@@ -17,7 +17,7 @@ To install the enviroment we use run:
 
 * dataset_params
   * data_location: Location that the datasets are located
-  * dataset_location: Location of the dataset inside the data_location (Cityscapes, VOC, CSAWS)
+  * dataset_location: Location of the dataset inside the data_location (Cityscapes, VOC, CsawS)
   * crop_size: Patch size for the CSAW-S dataset
   * is_binary: If True the masks are converted to binary masks (main target - background)
   * use_full_training_set: If true all the training examples are used during training
