@@ -1,0 +1,187 @@
+{
+"dataset_params" : {"data_location" : "/path_to_data_dir/",
+                    "dataset_location" : "VOC",
+                    "crop_size" : 512, 
+                    "is_binary" : false, 
+                    "use_full_training_set" : false, 
+                    "how_many_samples" : 100,
+                    "subset_n" : 1,
+                    "main_target" : "person",                    
+                    "annotator_id" : 1, 
+                    "is_coarse" : false, 
+                    "bootstrap_images" : true,
+                    "n_complementary_labels": "all",
+                    "leave_one_out": {"apply": false,
+                                    "label_id": 1},      
+                    "test_on_gold_standard" : true, 
+                    "download_data" : false,
+                    "train_transforms" : {"Resize" : {"apply" : true,
+                                                      "height" : 512,
+                                                      "width" : 512},
+                                        
+                                        "CenterCrop": {"apply" : false,
+                                                      "height" : 448,
+                                                      "width" : 448}, 
+                                        
+                                        "Normalize": {"apply" : true,
+                                                      "mean": [],
+                                                      "std" : []},
+                                        
+                                        "Flip" : true,
+                                        "RandomRotate90" : true,
+                                        
+                                        "RandomCrop": {"apply" : true,
+                                                      "height" : 448,
+                                                      "width" : 448}, 
+                                        
+                                        "RandomBrightnessContrast" : {"apply" : true,
+                                                                      "brightness_limit" : 0.1,
+                                                                      "contrast_limit" : 0.1},
+                                          
+                                        "ElasticTransform" : {"apply" : true,
+                                                              "alpha" : 256,
+                                                              "sigma" : 2.0, 
+                                                              "alpha_affine" : 0.0},                                          
+                                        
+                                        "RandomGamma" : {"apply" : false,
+                                                         "gamma_limit" : [90, 110]},
+                                        
+                                        "RandomRotatons" : {"apply" : false,
+                                                            "angle" : 30}
+                                         },
+                  
+                    "val_transforms" : {"Resize" : {"apply" : true,
+                                                      "height" : 512,
+                                                      "width" : 512},
+
+                                        "CenterCrop": {"apply" : false,
+                                                      "height" : 448,
+                                                      "width" : 448}, 
+                                        
+                                        "Normalize": {"apply" : true,
+                                                      "mean": [],
+                                                      "std" : []},
+
+                                        "Flip" : false,
+                                        "RandomRotate90" : false,
+                                        
+                                        "RandomCrop": {"apply" : false,
+                                                      "height" : 224,
+                                                      "width" : 224}, 
+                                        
+                                        "RandomBrightnessContrast" : {"apply" : false,
+                                                                      "brightness_limit" : 0.2,
+                                                                      "contrast_limit" : 0.2},
+                                        
+                                        "ElasticTransform" : {"apply" : false,
+                                                              "alpha" : 256,
+                                                              "sigma" : 2.0, 
+                                                              "alpha_affine" : 0.0},                                         
+                                        
+                                        "RandomGamma" : {"apply" : false,
+                                                         "gamma_limit" : [80, 120]},
+                                        
+                                        "RandomRotatons" : {"apply" : false,
+                                                            "angle" : 10}
+                                         },
+                  
+                    "test_transforms" : {"Resize" : {"apply" : true,
+                                                      "height" : 512,
+                                                      "width" : 512},
+
+                                        "CenterCrop": {"apply" : false,
+                                                      "height" : 448,
+                                                      "width" : 448},
+                                        
+                                        "Normalize": {"apply" : true,
+                                                      "mean": [],
+                                                      "std" : []},
+
+                                        "Flip" : false,
+                                        "RandomRotate90" : false,
+                                        
+                                        "RandomCrop": {"apply" : false,
+                                                      "height" : 224,
+                                                      "width" : 224}, 
+                                        
+                                        "RandomBrightnessContrast" : {"apply" : false,
+                                                                      "brightness_limit" : 0.2,
+                                                                      "contrast_limit" : 0.2},
+                                        
+                                        "ElasticTransform" : {"apply" : false,
+                                                              "alpha" : 256,
+                                                              "sigma" : 2.0, 
+                                                              "alpha_affine" : 0.0},                                         
+                                        
+                                        "RandomGamma" : {"apply" : false,
+                                                         "gamma_limit" : [80, 120]},
+                                        
+                                        "RandomRotatons" : {"apply" : false,
+                                                            "angle" : 10}
+                                         }
+                  },
+    
+"dataloader_params" : {"trainloader" : {"batch_size" : 12, 
+                                   "num_workers" : 6,
+                                   "shuffle": true, 
+                                    "pin_memory" : true},
+                   "valloader" : {"batch_size" : 12, 
+                                   "num_workers" : 6,
+                                   "shuffle": false, 
+                                    "pin_memory" : true},
+                   "testloader" : {"batch_size" : 12, 
+                                   "num_workers" : 6,
+                                   "shuffle": false, 
+                                    "pin_memory" : true},
+                    "use_sampler" : false,
+                    "sampler" : {"num_samples" : "None",
+                                    "replacement" : true,
+                                    "get_all" : false}
+                  },
+    
+"model_params" : {"backbone_type": "resnet50", 
+                  "segmentation_type": "deeplabv3",
+                  "pretrained" : true,
+                  "freeze_backbone" : false, 
+                  "goup_norm" : {"replace_with_goup_norm" : true,
+                               "num_groups" : 32,
+                               "keep_stats" : true}
+                  },
+    
+"training_params" : {"model_name" : "dry_run_100_1",
+                   "learning_rate" : 1.0e-4,
+                    "weight_decay" : 1e-6,
+                   "restore_session" : false,
+                    "restore_only_model": false,
+                   "epochs" : 100,
+                   "val_every" : 1,
+                   "save_every" : 1,
+                   "save_best_model": true,
+                   "log_every" : 100,
+                   "lr_scheduler" : "MultiStepLR",
+                   "MultiStepLR_schedule" : [1000, 2000],
+                   "ReduceLROnPlateau_params" : {"mode" : "max",
+                                                "factor" : 0.1,
+                                                "patience" : 10, 
+                                                "verbose" : true}
+                  },
+    
+"system_params" : {"use_all_GPUs" : true,
+                   "which_GPUs": "0,1,2,3",
+                   "use_GPU" : true
+                  },
+    
+"log_params" : {"project_name" : "NEW_PROJECT",
+                "run_name": "DEFINED_BY_MODEL_NAME"
+                },
+    
+"lr_finder" : {"type": "grid_search",
+                       "grid_search_params": {"min_pow" : -4.5, 
+                                            "max_pow" : -3.5, 
+                                            "resolution" : 25, 
+                                            "n_epochs" : 100, 
+                                            "random_lr" : false,
+                                            "report_intermediate_steps" : true
+                                             }
+            }
+}
