@@ -17,19 +17,19 @@ To install the enviroment we use run:
 
 * dataset_params
   * data_location: Location that the datasets are located
-  * dataset_location: Location of the dataset inside the data_location (Cityscapes, VOC, ANON)
-  * crop_size: Patch size for the ANON dataset
+  * dataset_location: Location of the dataset inside the data_location (Cityscapes, VOC, CSAWS)
+  * crop_size: Patch size for the CSAW-S dataset
   * is_binary: If True the masks are converted to binary masks (main target - background)
   * use_full_training_set: If true all the training examples are used during training
   * how_many_samples: Number of examples to include for training (if use_full_training_set is False)
   * subset_n: Which subset of the full training set to use (if use_full_training_set is False)
-  * main_target: The main target (cancer for ANON, person for Cityscapes and Pascal VOC)
-  * annotator_id: The annotator's ID for the test set on ANON (int values 1-3)
+  * main_target: The main target (cancer for CSAW-S, person for Cityscapes and Pascal VOC)
+  * annotator_id: The annotator's ID for the test set on CSAW-S (int values 1-3)
   * is_coarse: If True, it uses the coarse complementary labels on Cityscapes
   * bootstrap_images: If False, it orders the cities on Cityscapes for the training set
   * n_complementary_labels: Number of complementary labels to include (accepts int or "all")
   * leave_one_out: Which complementary label to exclude for the leave-one-out experiments (if apply is true)
-  * test_on_gold_standard: If True, it evaluates on the golden standard (works only with ANON)
+  * test_on_gold_standard: If True, it evaluates on the golden standard (works only with CSAW-S)
   * download_data: Download data for Pascal VOC
   * train_transforms: Defines the augmentations for the training set
   * val_transforms: Defines the augmentations for the validation set
